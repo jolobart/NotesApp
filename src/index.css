@@ -1,0 +1,153 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dark-mode {
+  background-color: black;
+}
+
+.dark-mode h1 {
+  color: white;
+}
+
+.container {
+  max-width: 968px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  min-height: 100vh;
+}
+
+.notes-list {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.note.new {
+  background: rgba(175, 248, 219, 1);
+}
+
+textarea {
+  border: none;
+  resize: none;
+  background: transparent;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.save {
+  background-color: #e1e1e1;
+  border: none;
+  border-radius: 15px;
+  padding: 5px 10px;
+}
+
+.save:hover {
+  background-color: #ededed;
+  cursor: pointer;
+}
+
+.note {
+  border-radius: 10px;
+  padding: 1rem;
+  min-height: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  white-space: pre-wrap;
+}
+
+.complete {
+  text-decoration: line-through;
+}
+
+.note:nth-child(4n + 2) {
+  background: rgba(255, 181, 232, 1);
+}
+
+.note:nth-child(4n + 3) {
+  background: rgba(178, 141, 255, 1);
+}
+
+.note:nth-child(4n + 4) {
+  background: rgba(175, 203, 255, 1);
+}
+
+.note:nth-child(4n + 5) {
+  background: rgba(231, 255, 172, 1);
+}
+
+.text-value {
+  overflow-wrap: break-word;
+  background-color: transparent;
+  border: 0;
+  font-size: 14px;
+}
+
+input[type="text"] {
+  word-wrap: break-word;
+  word-break: break-all;
+  height: 100%;
+}
+
+input:focus {
+  outline: none;
+}
+
+.note-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.delete-icon {
+  color: #f4511e;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+.delete-icon:hover {
+  cursor: pointer;
+  transform: translateY(-5px);
+  opacity: 1;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  background-color: rgb(233, 233, 233);
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 1.5em;
+  border: 2px solid #5d0cff;
+  outline: none;
+}
+
+.search input {
+  border: none;
+  background-color: rgb(233, 233, 233);
+}
+
+.search input:focus {
+  outline: none;
+}
