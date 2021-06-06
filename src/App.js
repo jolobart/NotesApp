@@ -25,9 +25,10 @@ const App = () => {
     const newNote = {
       id: nanoid(),
       text: text,
+      isCompleted: false,
       date: date.toLocaleDateString(),
     };
-    const newNotes = [...notes, newNote];
+    const newNotes = [newNote, ...notes];
     setNotes(newNotes);
   };
 
@@ -48,6 +49,16 @@ const App = () => {
     setNotes(newNotes);
   };
 
+  const toggle = (id) => {
+    const newNotes = notes.map((note) => {
+      if (note.id === id) {
+        note.isCompleted = !false;
+      }
+      return note;
+    });
+    setNotes(newNotes);
+  };
+
   return (
     <div className={`${darkMode && "dark-mode"}`}>
       <div className="container">
@@ -58,6 +69,7 @@ const App = () => {
           handleAddNote={addNote}
           handleDeleteNote={deleteNote}
           handleEditNote={editNote}
+          handleIsCompletedNote={toggle}
         />
       </div>
     </div>

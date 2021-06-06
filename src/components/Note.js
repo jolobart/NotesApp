@@ -1,7 +1,14 @@
 import { useState, useRef } from "react";
 import { MdDeleteForever, MdEdit, MdCheck } from "react-icons/md";
 
-const Note = ({ id, text, date, handleDeleteNote, handleEditNote }) => {
+const Note = ({
+  id,
+  text,
+  date,
+  handleDeleteNote,
+  handleEditNote,
+  handleIsCompletedNote,
+}) => {
   const [editMode, setEditMode] = useState(false);
   const inputRef = useRef(true);
 
@@ -46,6 +53,11 @@ const Note = ({ id, text, date, handleDeleteNote, handleEditNote }) => {
             />
           ) : (
             <>
+              <MdCheck
+                className="delete-icon"
+                size="1.3em"
+                onClick={() => handleIsCompletedNote(id)}
+              />
               <MdEdit
                 className="delete-icon"
                 size="1.3em"

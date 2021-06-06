@@ -140,7 +140,7 @@ input:focus {
   background-color: rgb(233, 233, 233);
   border-radius: 10px;
   padding: 5px;
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
   border: 2px solid #5d0cff;
   outline: none;
 }
@@ -148,10 +148,17 @@ input:focus {
 .search input {
   border: none;
   background-color: rgb(233, 233, 233);
+  width: 100%;
 }
 
 .search input:focus {
   outline: none;
+}
+
+.sort-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 1em;
 }
 
 ::-webkit-scrollbar {
