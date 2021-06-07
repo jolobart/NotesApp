@@ -1,13 +1,16 @@
 import { useState, useRef } from "react";
-import { MdDeleteForever, MdEdit, MdCheck } from "react-icons/md";
+import { MdDeleteForever, MdEdit, MdCheck, MdRestore } from "react-icons/md";
+import { motion } from "framer-motion";
 
 const Note = ({
   id,
   text,
   date,
+  isCompleted,
   handleDeleteNote,
   handleEditNote,
   handleIsCompletedNote,
+  handleRestoreNote,
 }) => {
   const [editMode, setEditMode] = useState(false);
   const inputRef = useRef(true);
@@ -30,7 +33,13 @@ const Note = ({
   };
 
   return (
-    <div className="note">
+    <motion.div
+      initial={{ x: "150vw", transition: { type: "spring", duration: 1 } }}
+      animate={{ x: 0, transition: { type: "spring", duration: 2 } }}
+      whileHover={{ scale: 0.95, transition: { type: "spring", duration: 1 } }}
+      exit={{ x: "-90vw", scale: [1, 0] }}
+      className={`${isCompleted ? "note complete" : "note"}`}
+    >
       <textarea
         className="text-value"
         ref={inputRef}
@@ -53,28 +62,47 @@ const Note = ({
             />
           ) : (
             <>
-              <MdCheck
-                className="delete-icon"
-                size="1.3em"
-                onClick={() => handleIsCompletedNote(id)}
-              />
-              <MdEdit
-                className="delete-icon"
-                size="1.3em"
-                onClick={() => changeFocus()}
-              />
-              <MdDeleteForever
-                className="delete-icon"
-                onClick={() => {
-                  handleDeleteNote(id);
-                }}
-                size="1.3em"
-              />
+              {isCompleted ? (
+                <>
+                  <MdRestore
+                    className="delete-icon"
+                    size="1.3em"
+                    onClick={() => handleRestoreNote(id)}
+                  />
+                  <MdDeleteForever
+                    className="delete-icon"
+                    onClick={() => {
+                      handleDeleteNote(id);
+                    }}
+                    size="1.3em"
+                  />
+                </>
+              ) : (
+                <>
+                  <MdEdit
+                    className="delete-icon"
+                    size="1.3em"
+                    onClick={() => changeFocus()}
+                  />
+                  <MdCheck
+                    className="delete-icon"
+                    size="1.3em"
+                    onClick={() => handleIsCompletedNote(id)}
+                  />
+                  <MdDeleteForever
+                    className="delete-icon"
+                    onClick={() => {
+                      handleDeleteNote(id);
+                    }}
+                    size="1.3em"
+                  />
+                </>
+              )}
             </>
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

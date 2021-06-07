@@ -28,7 +28,7 @@ const App = () => {
       isCompleted: false,
       date: date.toLocaleDateString(),
     };
-    const newNotes = [newNote, ...notes];
+    const newNotes = [...notes, newNote];
     setNotes(newNotes);
   };
 
@@ -52,7 +52,17 @@ const App = () => {
   const toggle = (id) => {
     const newNotes = notes.map((note) => {
       if (note.id === id) {
-        note.isCompleted = !false;
+        note.isCompleted = true;
+      }
+      return note;
+    });
+    setNotes(newNotes);
+  };
+
+  const restore = (id) => {
+    const newNotes = notes.map((note) => {
+      if (note.id === id) {
+        note.isCompleted = false;
       }
       return note;
     });
@@ -70,7 +80,34 @@ const App = () => {
           handleDeleteNote={deleteNote}
           handleEditNote={editNote}
           handleIsCompletedNote={toggle}
+          handleRestoreNote={restore}
         />
+      </div>
+      <div class="footer-basic">
+        <footer>
+          {/* <div class="social">
+            <a href="#">
+              <i class="icon ion-social-instagram"></i>
+            </a>
+            <a href="#">
+              <i class="icon ion-social-snapchat"></i>
+            </a>
+            <a href="#">
+              <i class="icon ion-social-twitter"></i>
+            </a>
+            <a href="#">
+              <i class="icon ion-social-facebook"></i>
+            </a>
+          </div> */}
+          {/* <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Home</a></li>
+                <li class="list-inline-item"><a href="#">Services</a></li>
+                <li class="list-inline-item"><a href="#">About</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+            </ul> */}
+          <p class="copyright">Jolobart © 2021</p>
+        </footer>
       </div>
     </div>
   );
