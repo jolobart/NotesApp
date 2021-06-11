@@ -70,7 +70,7 @@ const App = () => {
   };
 
   return (
-    <div className={`${darkMode && "dark-mode"}`}>
+    <div className={`${darkMode && "dark-mode"} body`}>
       <div className="container">
         <Header handleToggleDarkMode={setDarkMode} />
         <Search handleSearchNote={setSearchText} />
@@ -106,7 +106,8 @@ const App = () => {
                 <li class="list-inline-item"><a href="#">Terms</a></li>
                 <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
             </ul> */}
-          <p class="copyright">Jolobart © 2021</p>
+
+          <p className="copyright">Jolobart © 2021</p>
         </footer>
       </div>
     </div>

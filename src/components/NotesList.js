@@ -16,13 +16,13 @@ const NotesList = ({
   return (
     <>
       <div className="sort-buttons">
-        <button className="save" onClick={() => setSort("all")}>
+        <button className="button3" onClick={() => setSort("all")}>
           All
         </button>
-        <button className="save" onClick={() => setSort("active")}>
+        <button className="button3" onClick={() => setSort("active")}>
           Active
         </button>
-        <button className="save" onClick={() => setSort("completed")}>
+        <button className="button3" onClick={() => setSort("completed")}>
           Completed
         </button>
       </div>

@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+.body {
+  transition: background 0.2s linear;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -19,7 +23,7 @@ code {
 }
 
 .dark-mode {
-  background-color: black;
+  background-color: #292c35;
 }
 
 .dark-mode h1 {
@@ -141,7 +145,7 @@ input:focus {
   border-radius: 10px;
   padding: 5px;
   margin-bottom: 1em;
-  border: 2px solid #5d0cff;
+
   outline: none;
 }
 
@@ -179,7 +183,7 @@ input:focus {
 
 .footer-basic {
   padding: 40px 0;
-  background-color: #ffffff;
+
   color: #4b4c4d;
 }
 
@@ -235,4 +239,76 @@ input:focus {
   font-size: 13px;
   color: #aaa;
   margin-bottom: 0;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.label {
+  background-color: #111;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  position: relative;
+  height: 16px;
+  width: 40px;
+  transform: scale(1.5);
+  margin-right: 12px;
+  margin-top: 12px;
+}
+
+.label .ball {
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  height: 22px;
+  width: 22px;
+  transform: translateX(0px);
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball {
+  transform: translateX(24px);
+}
+
+.fa-moon {
+  color: #f1c40f;
+}
+
+.fa-sun {
+  color: #f39c12;
+}
+
+.button3 {
+  display: inline-block;
+  padding: 0.4em 2.2em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  background-color: #4eb5f1;
+  text-align: center;
+  transition: all 0.2s;
+  border: none;
+}
+
+.button3:hover {
+  background-color: #4095c6;
+}
+
+@media all and (max-width: 30em) {
+  .button3 {
+    display: block;
+    margin: 0.2em auto;
+  }
 }
